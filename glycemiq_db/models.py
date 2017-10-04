@@ -9,6 +9,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), nullable=False)
     password = db.Column(db.Text, nullable=False)
+    verified = db.Column(db.Boolean, default=False)
     fitbit_token = db.relationship('FitbitToken', backref='user', lazy='dynamic')
     activities = db.relationship('Activity', backref='user', lazy='dynamic')
     body = db.relationship('Body', backref='user', lazy='dynamic')
